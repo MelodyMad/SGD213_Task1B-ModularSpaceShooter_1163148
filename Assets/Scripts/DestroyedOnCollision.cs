@@ -23,14 +23,12 @@ public class DestroyedOnCollision : MonoBehaviour
     {
         bool tagInList = tags.Contains(other.gameObject.tag);
 
-        if (tagListType == TagListType.Blacklist 
-            && tagInList)
+        if (tagListType == TagListType.Blacklist && tagInList)
         {
             // Destroy if it's a Blacklist and the tag IS in the Blacklist
             Destroy(gameObject);
         }
-        else if (tagListType == TagListType.Whitelist 
-            && !tagInList)
+        else if (tagListType == TagListType.Whitelist && !tagInList)
         {
             // Destroy if it's a Whitelist and the tag is NOT in the Whitelist
             Destroy(gameObject);
