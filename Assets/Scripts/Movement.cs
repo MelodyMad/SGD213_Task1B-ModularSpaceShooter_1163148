@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     // Create an acceleration variable for object movement
     [SerializeField]
     private float m_acceleration = 50f;
-    private float initialVelocity = 5f;
+ 
 
     // Start is called before the first frame update
     void Start()

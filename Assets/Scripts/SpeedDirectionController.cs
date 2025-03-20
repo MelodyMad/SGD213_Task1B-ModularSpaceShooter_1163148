@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedController : MonoBehaviour
+public class SpeedDirectionController : MonoBehaviour
 {
     // Create a variable of the direction of a 2D vector
     [SerializeField]
@@ -14,13 +14,14 @@ public class SpeedController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // The movement is applied to this object
+        movement = GetComponent<Movement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Controlable direction that any object can use
+        // Controllable direction that any object can use
         movement.Move(direction);
     }
 }
