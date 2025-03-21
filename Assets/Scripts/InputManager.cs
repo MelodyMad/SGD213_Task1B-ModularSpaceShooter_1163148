@@ -27,7 +27,16 @@ public class InputManager : MonoBehaviour
         // If the Left mouse button is clicked or the space bar is pressed the object will Shoot
         if (Input.GetButton("Fire1") || Input.GetButton("Jump"))
         {
-            shooting.Shoot();
+            if (shooting != null)
+            {
+                // Shoot the bullet using the Shoot function in ShootingScript
+                shooting.Shoot();
+            }
+            else
+            {
+                Debug.Log("Attach a shooting script");
+            }
+            
         }
     }
 }
