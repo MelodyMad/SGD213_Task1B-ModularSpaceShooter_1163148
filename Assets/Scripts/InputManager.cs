@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    // Create a variable movement from the Movement script
+    // Create a variable movement from the Movement script and shooting from ShootingScript
     private Movement movement;
     private ShootingScript shooting;
 
     // Start is called before the first frame update
     void Start()
     {
-        // The components from the Movement script are retrieved for the movement variable 
+        // The components from the Movement script and ShootingScript are retrieved for the corresponding variables
         movement = GetComponent<Movement>();
         shooting = GetComponent<ShootingScript>();
     }
@@ -27,6 +27,7 @@ public class InputManager : MonoBehaviour
         // If the Left mouse button is clicked or the space bar is pressed the object will Shoot
         if (Input.GetButton("Fire1") || Input.GetButton("Jump"))
         {
+            // If the ShootingScript is attached
             if (shooting != null)
             {
                 // Shoot the bullet using the Shoot function in ShootingScript

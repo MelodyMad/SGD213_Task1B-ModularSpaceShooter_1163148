@@ -10,12 +10,10 @@ public enum TagListType
 
 public class DestroyedOnCollision : MonoBehaviour
 {
-
     [SerializeField]
     private TagListType tagListType = TagListType.Blacklist;
 
-    // A list of tags which we use to determine whether to explode or not
-    // Depending on the tagListType (Blacklist or Whitelist)
+    // A list of tags which we use to determine whether to destroy or not depending on the tagListType (Blacklist or Whitelist)
     [SerializeField]
     private List<string> tags;
 
@@ -25,12 +23,12 @@ public class DestroyedOnCollision : MonoBehaviour
 
         if (tagListType == TagListType.Blacklist && tagInList)
         {
-            // Destroy if it's a Blacklist and the tag IS in the Blacklist
+            // Destroy object if it's a Blacklist and the tag IS in the Blacklist
             Destroy(gameObject);
         }
         else if (tagListType == TagListType.Whitelist && !tagInList)
         {
-            // Destroy if it's a Whitelist and the tag is NOT in the Whitelist
+            // Destroy object if it's a Whitelist and the tag is NOT in the Whitelist
             Destroy(gameObject);
         }
         else

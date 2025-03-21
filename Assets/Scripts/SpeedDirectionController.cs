@@ -7,6 +7,9 @@ public class SpeedDirectionController : MonoBehaviour
     // Create a variable of the direction of a 2D vector
     [SerializeField]
     private Vector2 direction;
+    [SerializeField]
+    private Vector2 velocityDirection;
+
     // Create a variable from the Movement script named movement
     [SerializeField]
     private Movement movement;
@@ -21,7 +24,8 @@ public class SpeedDirectionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Controllable direction that any object can use
+        // Controllable directions that any object can use when this script is applied
         movement.Move(direction);
+        movement.Velocity(velocityDirection);
     }
 }

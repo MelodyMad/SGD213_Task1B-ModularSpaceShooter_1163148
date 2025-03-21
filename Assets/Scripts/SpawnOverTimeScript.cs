@@ -3,29 +3,27 @@ using System.Collections;
 
 public class SpawnOverTimeScript : MonoBehaviour
 {
-
     // Object to spawn
     [SerializeField]
     private GameObject spawnObject;
 
     // Delay between spawns
     [SerializeField]
-    private float spawnDelay = 2f;
+    private float m_spawnDelay = 2f;
 
     private Renderer ourRenderer;
 
     // Use this for initialization
     void Start()
     {
-
         ourRenderer = GetComponent<Renderer>();
 
-        // Stop our Spawner from being visible!
+        // Stop the Spawner from being visible!
         ourRenderer.enabled = false;
 
-        // Call the given function after spawnDelay seconds, 
-        // and then repeatedly call it after spawnDelay seconds.
-        InvokeRepeating("Spawn", spawnDelay, spawnDelay);
+        // Call the given function after m_spawnDelay seconds, 
+        // and then repeatedly call it after m_spawnDelay seconds.
+        InvokeRepeating("Spawn", m_spawnDelay, m_spawnDelay);
     }
 
     void Spawn()

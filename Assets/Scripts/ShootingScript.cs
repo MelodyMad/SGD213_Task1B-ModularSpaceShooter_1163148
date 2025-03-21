@@ -13,7 +13,7 @@ public class ShootingScript : MonoBehaviour
 
     void Start()
     {
-        // Math to perfectly spawn bullets in front of us
+        // Math to perfectly spawn bullets in front of the Spaceship
         m_bulletOffset = GetComponent<Renderer>().bounds.size.y / 2 // Half of our size
             + bullet.GetComponent<Renderer>().bounds.size.y / 2; // Plus half of the bullet size
     }
@@ -21,7 +21,7 @@ public class ShootingScript : MonoBehaviour
     public void Shoot()
     {
         float CurrentTime = Time.time;
-        // Have a delay so we don't shoot too many bullets
+        // Have a delay to stop too many bullets from spawning at once
         if (CurrentTime - m_lastFiredTime > m_fireDelay)
         {
             // Spawn and then fire the bullet
