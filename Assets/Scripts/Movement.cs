@@ -29,13 +29,8 @@ public class Movement : MonoBehaviour
 
     public void Velocity(Vector2 velocityDirection)
     {
-        // If the object has the tag Enemy or Player then they will be assigned velocity.
-        // Therefore only the Boulders and the Bullet will have velocity
-        if (gameObject.CompareTag("Enemy") || gameObject.CompareTag("Bullet"))
-        {
-            // Create velocity by multiplying initial velocity by a direction
-            m_rb.velocity = velocityDirection * m_velocity;
-        }   
+        // Create velocity by multiplying initial velocity by a direction
+        m_rb.velocity = velocityDirection * m_velocity; 
     }
 }
 

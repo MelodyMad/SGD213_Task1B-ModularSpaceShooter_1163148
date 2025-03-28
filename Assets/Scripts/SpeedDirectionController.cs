@@ -19,6 +19,7 @@ public class SpeedDirectionController : MonoBehaviour
     {
         // The movement is applied to this object
         movement = GetComponent<Movement>();
+        movement.Velocity(velocityDirection);
     }
 
     // Update is called once per frame
@@ -26,6 +27,5 @@ public class SpeedDirectionController : MonoBehaviour
     {
         // Controllable directions that any object can use when this script is applied
         movement.Move(direction);
-        movement.Velocity(velocityDirection);
     }
 }
