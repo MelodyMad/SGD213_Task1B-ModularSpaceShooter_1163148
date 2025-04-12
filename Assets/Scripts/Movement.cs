@@ -12,25 +12,25 @@ public class Movement : MonoBehaviour
     private float m_velocity = 5f;
 
     // Create a rigid body variable
-    private Rigidbody2D m_rb;
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
         // Create a rigid body for the 2D object
-        m_rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public void Move(Vector2 direction)
     {
         // Making the rigid body move in a direction multiplied by the acceleration and frame time
-        m_rb.AddForce(direction * m_acceleration * Time.deltaTime);
+        rb.AddForce(direction * m_acceleration * Time.deltaTime);
     }
 
     public void Velocity(Vector2 velocityDirection)
     {
         // Create velocity by multiplying initial velocity by a direction
-        m_rb.velocity = velocityDirection * m_velocity; 
+        rb.velocity = velocityDirection * m_velocity; 
     }
 }
 
