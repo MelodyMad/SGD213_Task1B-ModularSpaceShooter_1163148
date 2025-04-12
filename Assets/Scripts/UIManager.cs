@@ -13,13 +13,15 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (instance != null) {
+        if (instance != null) 
+        {
             Debug.LogError("There is more than one UIManager in the scene, this will break the Singleton pattern.");
         }
         instance = this;
     }
 
-    public void UpdatePlayerHealthSlider(float percentage) {
+    public void UpdatePlayerHealthSlider(float percentage) 
+    {
         sldPlayerHealth.value = percentage;
     }
 }

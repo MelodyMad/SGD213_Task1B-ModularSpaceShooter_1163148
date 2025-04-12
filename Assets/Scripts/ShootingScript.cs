@@ -6,7 +6,7 @@ public class ShootingScript : MonoBehaviour
     [SerializeField]
     private GameObject bullet;
     [SerializeField]
-    private float fireDelay = 1f;
+    private float fireDelay = 0.5f;
 
     private float lastFiredTime = 0f;
     private float bulletOffset = 2f;

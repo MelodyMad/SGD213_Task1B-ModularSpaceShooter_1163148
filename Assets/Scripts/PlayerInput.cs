@@ -19,7 +19,6 @@ public class PlayerInput : MonoBehaviour
         {
             return weapon;
         }
-
         set
         {
             weapon = value;
