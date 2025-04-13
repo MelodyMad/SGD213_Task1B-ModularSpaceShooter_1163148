@@ -30,7 +30,6 @@ public class EngineBase : MonoBehaviour
         ourRigidbody.AddForce(forceToAdd);
     }
 
-    
     public void MovePlayer(Vector2 direction)
     {
         // a horizontalInput of 0 has no effect, as we want our ship to drift
@@ -42,5 +41,4 @@ public class EngineBase : MonoBehaviour
             ourRigidbody.AddForce(forceToAdd);
         }
     }
-
 }

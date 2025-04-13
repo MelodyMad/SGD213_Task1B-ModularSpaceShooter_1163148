@@ -18,7 +18,6 @@ public class Pickup : MonoBehaviour
         {
             GameObject player = col.gameObject;
             HandlePlayerPickup(player);
-            Destroy(gameObject);
         }
     }
 
