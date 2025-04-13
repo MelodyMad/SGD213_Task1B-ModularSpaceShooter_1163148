@@ -9,7 +9,7 @@ public class ShootingScript : MonoBehaviour
     private float fireDelay = 0.5f;
 
     private float lastFiredTime = 0f;
-    private float bulletOffset = 2f;
+    private float bulletOffset = 1f;
 
     void Start()
     {
