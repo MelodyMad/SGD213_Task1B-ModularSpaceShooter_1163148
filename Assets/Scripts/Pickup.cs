@@ -36,6 +36,7 @@ public class Pickup : MonoBehaviour
     /// new IWeapon (based on the provided weaponType).
     /// </summary>
     /// <param name="player"></param>
+    
     private void HandlePlayerPickup(GameObject player)
     {
         // get the playerInput from the player

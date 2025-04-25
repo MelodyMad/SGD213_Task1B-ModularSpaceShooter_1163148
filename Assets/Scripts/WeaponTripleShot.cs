@@ -9,6 +9,7 @@ public class WeaponTripleShot : WeaponBase
     /// <summary>
     /// Shoot will spawn a three bullets, provided enough time has passed compared to our fireDelay.
     /// </summary>
+    
     public override void Shoot() 
     {
         weapon = GetComponent<PlayerInput>();

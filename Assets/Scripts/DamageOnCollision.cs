@@ -13,7 +13,11 @@ public class DamageOnCollision : DetectCollisionBase
         if (other.GetComponent<IHealth>() != null) 
         {
             other.GetComponent<IHealth>().TakeDamage(damageToDeal);
-        } 
+        }
+        // else if (other.GetComponent<IDamage>() != null)
+        // {
+        //     other.GetComponent<IDamage>().TakeDamage(damageToDeal);
+        // }
         else 
         {
             Debug.Log(other.name + " does not have an IHealth component");
