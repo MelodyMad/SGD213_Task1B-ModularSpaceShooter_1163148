@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class WeaponTripleShot : WeaponBase 
 {
+    private PlayerInput weapon;
 
     /// <summary>
     /// Shoot will spawn a three bullets, provided enough time has passed compared to our fireDelay.
     /// </summary>
     public override void Shoot() 
     {
+        weapon = GetComponent<PlayerInput>();
         // get the current time
         float currentTime = Time.time;
         print("Shoot triple shot");
@@ -26,7 +28,6 @@ public class WeaponTripleShot : WeaponBase
                 // set their direction
                 newBullet.GetComponent<MoveConstantly>().Direction = new Vector2(x + 0.5f * i, 0.5f);
             }
-
             // update our shooting state
             lastFiredTime = currentTime;
         }

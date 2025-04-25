@@ -4,14 +4,14 @@ public class InputManager : MonoBehaviour
 {
     // Create a variable movement from the Movement script and shooting from ShootingScript
     private EngineBase movement;
-    private ShootingScript shooting;
+    private WeaponBase weapon;
 
     // Start is called before the first frame update
     void Start()
     {
         // The components from the Movement script and ShootingScript are retrieved for the corresponding variables
         movement = GetComponent<EngineBase>();
-        shooting = GetComponent<ShootingScript>();
+        weapon = GetComponent<WeaponBase>();
     }
 
     // Update is called once per frame
@@ -26,10 +26,10 @@ public class InputManager : MonoBehaviour
         if (Input.GetButton("Fire1") || Input.GetButton("Jump"))
         {
             // If the ShootingScript is attached
-            if (shooting != null)
+            if (weapon != null)
             {
                 // Shoot the bullet using the Shoot function in ShootingScript
-                shooting.Shoot();
+                weapon.Shoot();
             }
             else
             {
