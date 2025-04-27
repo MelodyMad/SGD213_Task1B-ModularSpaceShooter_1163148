@@ -35,7 +35,6 @@ public class WeaponTripleShot : WeaponBase
                 {
                     newBullet.GetComponent<MoveConstantly>().Direction = new Vector2(x + 0.5f * i, -0.5f); // downwards
                 }
-                // newBullet.GetComponent<MoveConstantly>().Direction = new Vector2(x + 0.5f * i, 0.5f);
             }
             // update our shooting state
             lastFiredTime = currentTime;

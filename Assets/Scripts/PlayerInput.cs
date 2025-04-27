@@ -24,6 +24,10 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private float powerUpDuration = 5f;
+    private float powerUpTimer = 0f;
+
     void Start()
     {
         Movement = GetComponent<EngineBase>();
@@ -65,6 +69,15 @@ public class PlayerInput : MonoBehaviour
                 Debug.Log("Attach a WeaponBase script");
             }
         }
+
+        if (powerUpTimer > 0)
+        {
+            powerUpTimer -= Time.deltaTime;
+            if (powerUpTimer <= 0)
+            {
+                SwapWeapon(WeaponType.machineGun);
+            }
+        }
     }
 
     /// <summary>
@@ -83,6 +96,8 @@ public class PlayerInput : MonoBehaviour
                 break;
             case WeaponType.tripleShot:
                 newWeapon = gameObject.AddComponent<WeaponTripleShot>();
+                // When the triple shot pickup is collected the cooldown timer resets
+                powerUpTimer = powerUpDuration;
                 break;
         }
 
