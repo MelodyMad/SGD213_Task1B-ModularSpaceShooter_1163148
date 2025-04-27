@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealth : MonoBehaviour, IDamage
+public class EnemyHealth : MonoBehaviour, IHealth
 {
     [SerializeField]
     protected int currentHealth;
@@ -14,7 +14,7 @@ public class EnemyHealth : MonoBehaviour, IDamage
     public int MaxHealth { get { return maxHealth; } }
 
     [SerializeField]
-    private Slider EnemyHealthSlider;
+    private Slider enemyHealthSlider;
 
     void Start()
     {
@@ -28,12 +28,8 @@ public class EnemyHealth : MonoBehaviour, IDamage
 
     public void TakeDamage(int damageAmount)
     {
-        if (gameObject.tag == "Boss")
-        {
-            currentHealth -= damageAmount;
-            EnemyHealthSlider.value = ((float)currentHealth / (float)maxHealth);
-        }
-
+        currentHealth -= damageAmount;
+        UpdatePlayerHealthSlider((float)currentHealth / (float)maxHealth);
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -50,4 +46,22 @@ public class EnemyHealth : MonoBehaviour, IDamage
         // remove this object from the game
         Destroy(gameObject);
     }
+
+    /// The Heal method is required due to inheriting from the IHealth interface however the enemy does not heal, although in future if will have the capabilities to do so.
+    public void Heal(int healingAmount)
+    {
+        // Do nothing because the enemy is not meant to heal, however if the feature was desired the script below is a starting point to implement that feature
+        // currentHealth += healingAmount;
+        // if (currentHealth > maxHealth)
+        // {
+        //     currentHealth = maxHealth;
+        // }
+    }
+
+    
+    public void UpdatePlayerHealthSlider(float percentage)
+    {
+       enemyHealthSlider.value = percentage;
+    }
+
 }

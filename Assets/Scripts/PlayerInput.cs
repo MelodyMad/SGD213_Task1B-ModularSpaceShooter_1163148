@@ -8,7 +8,6 @@ using UnityEngine;
 /// </summary>
 public class PlayerInput : MonoBehaviour
 {
-
     // local references
     private EngineBase Movement;
 
@@ -44,10 +43,15 @@ public class PlayerInput : MonoBehaviour
                 // pass our movement input to our playerMovementScript
                 Movement.MovePlayer(horizontalInput * Vector2.right);
             }
+            else
+            {
+                // In the unity console, say that there is no shooting script attached
+                Debug.Log("Attach an EngineBase script");
+            }
         }
 
         // if we press the Fire1 button
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") || Input.GetButton("Jump"))
         {
             // if our shootingScript is populated
             if (weapon != null)
@@ -55,12 +59,17 @@ public class PlayerInput : MonoBehaviour
                 // tell shootingScript to shoot
                 weapon.Shoot();
             }
+            else
+            {
+                // In the unity console, say that there is no shooting script attached
+                Debug.Log("Attach a WeaponBase script");
+            }
         }
     }
 
     /// <summary>
-    /// SwapWeapon handles creating a new WeaponBase component based on the given weaponType. This
-    /// will popluate the newWeapon's controls and remove the existing weapon ready for usage.
+    /// SwapWeapon handles creating a new WeaponBase component based on the given weaponType. 
+    /// This will popluate the newWeapon's controls and remove the existing weapon ready for usage.
     /// </summary>
     /// <param name="weaponType">The given weaponType to swap our current weapon to, this is an enum in WeaponBase.cs</param>
     public void SwapWeapon(WeaponType weaponType)

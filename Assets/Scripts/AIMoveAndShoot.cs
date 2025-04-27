@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIMoveAndShoot : MonoBehaviour {
-
+public class AIMoveAndShoot : MonoBehaviour
+{ 
     // state
     private Vector2 movementDirection;
 
