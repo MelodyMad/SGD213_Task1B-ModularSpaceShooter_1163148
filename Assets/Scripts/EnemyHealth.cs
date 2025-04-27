@@ -29,7 +29,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     public void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
-        UpdatePlayerHealthSlider((float)currentHealth / (float)maxHealth);
+        UpdateEnemyHealthSlider((float)currentHealth / (float)maxHealth);
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -59,7 +59,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     }
 
     
-    public void UpdatePlayerHealthSlider(float percentage)
+    public void UpdateEnemyHealthSlider(float percentage)
     {
        enemyHealthSlider.value = percentage;
     }
