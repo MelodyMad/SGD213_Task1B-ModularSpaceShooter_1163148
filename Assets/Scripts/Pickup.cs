@@ -65,4 +65,4 @@ public class Pickup : MonoBehaviour
     }
 }
 
-public enum WeaponType { machineGun, tripleShot }
+public enum WeaponType { machineGun, tripleShot, none }

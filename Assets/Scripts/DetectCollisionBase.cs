@@ -29,7 +29,8 @@ public class DetectCollisionBase : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other) {
+    void OnCollisionEnter2D(Collision2D other) 
+    {
         bool tagInList = tags.Contains(other.gameObject.tag);
 
         if (tagListType == TagListType.Blacklist && tagInList) 

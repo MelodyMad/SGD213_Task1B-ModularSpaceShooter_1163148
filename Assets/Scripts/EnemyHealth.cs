@@ -61,7 +61,14 @@ public class EnemyHealth : MonoBehaviour, IHealth
     
     public void UpdateEnemyHealthSlider(float percentage)
     {
-       enemyHealthSlider.value = percentage;
+        if (enemyHealthSlider != null)
+        {
+            enemyHealthSlider.value = percentage;
+        }
+        else
+        {
+            Debug.Log("Enemy health slider is not assigned!");
+        }
     }
 
 }
