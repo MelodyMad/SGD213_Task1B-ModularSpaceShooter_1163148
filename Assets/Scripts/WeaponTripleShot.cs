@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// WeaponMachineGun handles the triple shot weapon of three shots being fired at once
+/// </summary>
 public class WeaponTripleShot : WeaponBase 
 {
-    private PlayerInput weapon;
-
     /// <summary>
     /// Shoot will spawn a three bullets, provided enough time has passed compared to our fireDelay.
     /// </summary>
-    
     public override void Shoot() 
     {
-        weapon = GetComponent<PlayerInput>();
         // get the current time
         float currentTime = Time.time;
         // print("Shoot triple shot");

@@ -3,34 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// PlayerInput handles all of the player specific input behaviour, and passes the input information
-/// to the appropriate scripts.
+/// PlayerInput handles all of the player specific input behaviour, and passes the input information to the appropriate scripts.
 /// </summary>
 public class PlayerInput : MonoBehaviour
 {
     // local references
-    private EngineBase Movement;
+    private EngineBase movement;
 
     private WeaponBase weapon;
     public WeaponBase Weapon
     {
-        get
-        {
-            return weapon;
-        }
-        set
-        {
-            weapon = value;
-        }
+        get { return weapon; }
+        set { weapon = value; }
     }
 
+    // create a cooldown timer for when the pickup revents back to normal
     [SerializeField]
-    private float powerUpDuration = 5f;
-    private float powerUpTimer = 0f;
-
+    private float powerupDuration = 5f;
+    private float powerupTimer = 0f;
+    
     void Start()
     {
-        Movement = GetComponent<EngineBase>();
+        movement = GetComponent<EngineBase>();
         weapon = GetComponent<WeaponBase>();
     }
 
@@ -42,10 +36,10 @@ public class PlayerInput : MonoBehaviour
         if (horizontalInput != 0.0f)
         {
             // ensure our playerMovementScript is populated to avoid errors
-            if (Movement != null)
+            if (movement != null)
             {
                 // pass our movement input to our playerMovementScript
-                Movement.MovePlayer(horizontalInput * Vector2.right);
+                movement.MovePlayer(horizontalInput * Vector2.right);
             }
             else
             {
@@ -70,11 +64,15 @@ public class PlayerInput : MonoBehaviour
             }
         }
 
-        if (powerUpTimer > 0)
+        // if the timer is greater then zero start counting down
+        if (powerupTimer > 0)
         {
-            powerUpTimer -= Time.deltaTime;
-            if (powerUpTimer <= 0)
+            // count down the seconds by subtracting time from the timer
+            powerupTimer -= Time.deltaTime;
+            // when the timer runs out and equals zero
+            if (powerupTimer <= 0)
             {
+                // swap the weapon back to the machine gun
                 SwapWeapon(WeaponType.machineGun);
             }
         }
@@ -97,7 +95,7 @@ public class PlayerInput : MonoBehaviour
             case WeaponType.tripleShot:
                 newWeapon = gameObject.AddComponent<WeaponTripleShot>();
                 // When the triple shot pickup is collected the cooldown timer resets
-                powerUpTimer = powerUpDuration;
+                powerupTimer = powerupDuration;
                 break;
         }
 

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Rotate handles the rotation of objects that this script is applied to
+/// </summary>
 public class Rotate : MonoBehaviour
 {
     [SerializeField]

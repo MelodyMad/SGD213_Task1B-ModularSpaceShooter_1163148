@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponMachineGun : WeaponBase 
-{
-
+/// <summary>
+/// WeaponMachineGun handles the base weapon of just a single shot when fired
+/// </summary>
+public class WeaponMachineGun : WeaponBase
+{ 
     /// <summary>
     /// Shoot will spawn a new bullet, provided enough time has passed compared to our fireDelay.
     /// </summary>

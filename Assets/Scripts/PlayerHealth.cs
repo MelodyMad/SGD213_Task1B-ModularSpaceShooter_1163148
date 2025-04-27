@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// PlayerHealth handles all of the health aspects relating to the player
+/// including damage, death, healing, and a health bar
+/// </summary>
 public class PlayerHealth : MonoBehaviour, IHealth
 {
     [SerializeField]
@@ -23,11 +27,13 @@ public class PlayerHealth : MonoBehaviour, IHealth
     /// <param name="healingAmount">The amount of health to gain, this value should be positive</param>
     public void Heal(int healingAmount)
     {
+        // increase the current health by the set healing amount
         currentHealth += healingAmount;
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
         }
+        // update the player health bar in the UI
         UIManager.instance.UpdatePlayerHealthSlider((float)currentHealth / (float)maxHealth);
     }
 
@@ -37,10 +43,10 @@ public class PlayerHealth : MonoBehaviour, IHealth
     /// <param name="damageAmount">The amount of damage to lose, this value should be positive</param>
     public void TakeDamage(int damageAmount)
     {
+        // decrease the current health by the damage amount
         currentHealth -= damageAmount;
-
+        // update the player health bar in the UI
         UIManager.instance.UpdatePlayerHealthSlider((float)currentHealth / (float)maxHealth);
-
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -53,8 +59,6 @@ public class PlayerHealth : MonoBehaviour, IHealth
     /// </summary>
     public void Die()
     {
-        // would be good to do some death animation here maybe
-        // remove this object from the game
         Destroy(gameObject);
     }
 }

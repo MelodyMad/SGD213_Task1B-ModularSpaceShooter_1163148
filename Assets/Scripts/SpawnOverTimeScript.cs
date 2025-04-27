@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// SpawnOverTimeScript handles the spawning of set objects from an object at random positions over the course of set times
+/// </summary>
 public class SpawnOverTimeScript : MonoBehaviour
 {
     // Object to spawn

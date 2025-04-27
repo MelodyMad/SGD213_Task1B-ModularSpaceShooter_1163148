@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// WeaponBase is an interface that handles all of the weapon information and methods
+/// </summary>
 public abstract class WeaponBase : MonoBehaviour
 {
     [Header("Controls")]
     [SerializeField]
-    protected float fireDelay = 1f;
+    protected float fireDelay = 0.6f;
 
+    // bullet prefab
     [SerializeField]
     protected GameObject bullet;
     public GameObject Bullet
@@ -16,6 +20,7 @@ public abstract class WeaponBase : MonoBehaviour
         set { bullet = value; }
     }
 
+    // location bullet will spawn
     [Header("References")]
     [SerializeField]
     protected Transform bulletSpawnPoint;

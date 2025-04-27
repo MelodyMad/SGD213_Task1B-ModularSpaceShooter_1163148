@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// IHealth defines how to speak to any Health component
+/// IHealth handles all of the Health components available
 /// </summary>
 public interface IHealth
 {
